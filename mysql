@@ -1,0 +1,12 @@
+Centos 6.1安装mysql5.7
+找到对应的源文件（注意：Centos 6.x 需要使用 EL6- 的源文件，例如：mysql57-community-release-el6-11.noarch.rpm）
+#下载源文件
+wget http://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm
+#添加yum源
+yum localinstall mysql57-community-release-el6-11.noarch.rpm
+#安装
+yum install mysql-community-server
+#启动mysql服务
+service mysqld start
+#设置root用户密码
+set password for 'root'@'localhost'=password('123456!'); 
