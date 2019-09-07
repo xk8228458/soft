@@ -10,3 +10,17 @@ yum install mysql-community-server
 service mysqld start
 #设置root用户密码
 set password for 'root'@'localhost'=password('123456!'); 
+
+
+修改问题：
+mysql5.7 明明已经设置好密码，但还是提示要设置重置密码：
+
+错误：You must reset your password using ALTER USER statement before executing this statement.
+
+解决办法：
+
+step 1: SET PASSWORD = PASSWORD(‘your new password‘);
+
+step 2: ALTER USER ‘root‘@‘localhost‘ PASSWORD EXPIRE NEVER;
+
+step 3: flush privileges;
